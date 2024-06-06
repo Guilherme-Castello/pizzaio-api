@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/pizzas', [PizzaController::class, 'createPizza']);
 Route::delete('/pizzas', [PizzaController::class,'deletePizza']);
 Route::get('/pizzas', [PizzaController::class,'listPizzas']);
+ 
