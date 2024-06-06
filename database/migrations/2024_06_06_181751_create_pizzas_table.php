@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('pizzas', function (Blueprint $table) {
             $table->id();
+            $table->string('flavour');
+            $table->integer('price_in_cents');
+            $table->integer('size');
             $table->timestamps();
         });
     }
