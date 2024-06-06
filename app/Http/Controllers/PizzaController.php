@@ -53,5 +53,22 @@ class PizzaController extends Controller
             ], 404);
         }
     }
+
+    public function listPizzas(Request $request)
+{
+    $request->validate([
+        'category' => 'required|string',
+    ]);
+
+    // Retrieve pizzas by category
+    $category = $request->input('category');
+    $pizzas = Pizza::where('category', $category)->get();
+
+    return response()->json([
+        'message' => 'Pizzas retrieved successfully',
+        'pizzas' => $pizzas
+    ], 200);
+}
+
     
 }
