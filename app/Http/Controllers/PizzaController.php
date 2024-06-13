@@ -33,17 +33,12 @@ class PizzaController extends Controller
         ], 201);
     }
 
-    public function delete_pizza(Request $request)
+    public function delete_pizza($id)
     {
-        $request->validate([
-            'id' => 'required|integer',
-        ]);
     
-        // Find the pizza by ID
-        $pizza = Pizza::find($request->input('id'));
+        $pizza = Pizza::findOrFail($id);
     
         if ($pizza) {
-            // Delete the pizza
             $pizza->delete();
     
             return response()->json([

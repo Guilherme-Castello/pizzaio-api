@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post($endpoint, [PizzaController::class, 'create_pizza']);
 
 // Deletes a pizza
-Route::delete($endpoint, [PizzaController::class,'delete_pizza']);
+Route::delete($endpoint.'/{id}', [PizzaController::class,'delete_pizza']);
 
 //Show a pizza by id
 Route::get($endpoint.'/{id}', [PizzaController::class,'show_pizza_by_id']);
